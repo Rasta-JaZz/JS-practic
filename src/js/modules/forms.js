@@ -10,7 +10,7 @@ export function forms() {
 	}
 
 	const postData = async (url, data) => {
-		document.querySelectorAll(".status").textContent = message.loading
+		document.querySelector(".status").textContent = message.loading
 
 		let res = await fetch(url, {
 			method: "POST",
