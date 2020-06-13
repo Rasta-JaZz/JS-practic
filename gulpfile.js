@@ -4,14 +4,11 @@ const gulp = require("gulp")
 const webpack = require("webpack-stream")
 const browsersync = require("browser-sync")
 
-// const dist = "./dist/";
-const dist = "C://MAMP/htdocs/js-practice/"
+const dist = "./dist/"
+// const dist = "C://MAMP/htdocs/js-practice/"
 
 gulp.task("copy-html", () => {
-	return gulp
-		.src("./src/index.html")
-		.pipe(gulp.dest(dist))
-		.pipe(browsersync.stream())
+	return gulp.src("./src/index.html").pipe(gulp.dest(dist)).pipe(browsersync.stream())
 })
 
 gulp.task("build-js", () => {

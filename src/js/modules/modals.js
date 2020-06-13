@@ -1,9 +1,4 @@
-export function modals(
-	triggerSelector,
-	modalSelector,
-	closeSelector,
-	closeClick = true
-) {
+export function modals(triggerSelector, modalSelector, closeSelector, closeClick = true) {
 	function bindModal() {
 		const trigger = document.querySelectorAll(triggerSelector),
 			modal = document.querySelector(modalSelector),
@@ -18,6 +13,7 @@ export function modals(
 
 				modal.style.display = "block"
 				document.body.style.overflow = "hidden"
+				document.body.style.marginRight = "15px"
 			})
 		})
 
@@ -26,6 +22,7 @@ export function modals(
 
 			modal.style.display = "none"
 			document.body.style.overflow = ""
+			document.body.style.marginRight = "0px"
 		})
 
 		modal.addEventListener("click", (e) => {
@@ -33,6 +30,7 @@ export function modals(
 				dataClose.forEach((elem) => (elem.style.display = "none"))
 				modal.style.display = "none"
 				document.body.style.overflow = ""
+				document.body.style.marginRight = "0px"
 			}
 		})
 	}

@@ -1,4 +1,4 @@
-export function forms() {
+export function forms(state) {
 	const form = document.querySelectorAll("form"),
 		inputs = document.querySelectorAll("input"),
 		phoneInputs = document.querySelectorAll('input[name="user_phone"]')
@@ -38,7 +38,13 @@ export function forms() {
 			statusMessage.classList.add("status")
 			elem.appendChild(statusMessage)
 
-			const formData = new FormData(elem)
+			let formData = new FormData(elem)
+
+			if (elem.getAttribute("data-calc") === "end") {
+				for (let key in state) {
+					formData.append(key, state[key])
+				}
+			}
 
 			postData("assets/server.php", formData)
 				.then((res) => {
